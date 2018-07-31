@@ -1,7 +1,7 @@
 
 dependencies {
-    compile "io.arrow-kt:arrow-core:$arrow_version"
-    compile "io.arrow-kt:arrow-syntax:$arrow_version"
+    implementation "io.arrow-kt:arrow-core:$arrow_version"
+    implementation "io.arrow-kt:arrow-syntax:$arrow_version"
 
     testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_version"
     testImplementation("com.nhaarman:mockito-kotlin-kt1.1:1.6.0") {

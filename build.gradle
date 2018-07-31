@@ -41,7 +41,7 @@ subprojects {
     }
 
     dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
         // Test
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
