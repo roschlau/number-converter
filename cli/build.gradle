@@ -16,7 +16,4 @@ shadowJar {
 
 dependencies {
     implementation project(':core')
-
-    implementation "io.arrow-kt:arrow-core:$arrow_version"
-    implementation "io.arrow-kt:arrow-syntax:$arrow_version"
 }
