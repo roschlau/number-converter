@@ -1,0 +1,18 @@
+<configuration scan="true" scanPeriod="1 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="org.eclipse.jetty" level="info"/>
+    <logger name="io.netty" level="info"/>
+
+    <logger name="Application" level="trace"/>
+    <logger name="com.github.roschlau" level="trace"/>
+
+</configuration>

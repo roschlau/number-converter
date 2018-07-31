@@ -1,0 +1,31 @@
+buildscript {
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    }
+
+    ext.ktor_version = '0.9.3'
+}
+apply plugin: 'application'
+
+mainClassName = "io.ktor.server.netty.DevelopmentEngine"
+
+apply plugin: "com.github.johnrengelman.shadow"
+shadowJar {
+    baseName = 'number-converter-web-api'
+    version = null
+    classifier = null
+}
+
+repositories {
+    maven { url = "http://dl.bintray.com/kotlin/ktor" }
+}
+
+dependencies {
+    implementation project(':core')
+
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:1.2.1"
+
+}

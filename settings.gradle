@@ -2,3 +2,4 @@ rootProject.name = 'number-converter'
 
 include 'cli'
 include 'core'
+include 'web-api'
