@@ -1,4 +1,4 @@
-package com.github.roschlau.numberconverter
+package com.github.roschlau.numberconverter.cli
 
 /**
  * Just for fun, trying to imitate the Haskell-way of doing referentially transparent side effects here.

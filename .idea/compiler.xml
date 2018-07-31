@@ -6,6 +6,8 @@
       <module name="kotlin-base_test" target="1.8" />
       <module name="kotlin-starter_main" target="1.8" />
       <module name="kotlin-starter_test" target="1.8" />
+      <module name="number-converter_main" target="1.8" />
+      <module name="number-converter_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

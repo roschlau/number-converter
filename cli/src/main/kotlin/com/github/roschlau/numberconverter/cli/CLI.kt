@@ -1,4 +1,7 @@
-package com.github.roschlau.numberconverter
+package com.github.roschlau.numberconverter.cli
+
+import com.github.roschlau.numberconverter.Result
+import com.github.roschlau.numberconverter.convert
 
 
 fun main(args: Array<String>) {

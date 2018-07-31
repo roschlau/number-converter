@@ -1,2 +1,4 @@
 rootProject.name = 'number-converter'
 
+include 'cli'
+include 'core'
