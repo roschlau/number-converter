@@ -10,7 +10,7 @@ fun repl(
     out: PrintStream = System.out,
     eval: (String) -> String
 ) {
-    readLoop(prompt, exitKeywords, `in`)
+    readLoop(prompt, exitKeywords, `in`, out)
         .map(eval)
         .forEach(out::println)
 }
@@ -18,10 +18,11 @@ fun repl(
 fun readLoop(
     prompt: String,
     exitKeywords: Set<String>,
-    `in`: BufferedReader
+    `in`: BufferedReader,
+    out: PrintStream
 ): Sequence<String> =
     generateSequence {
-        print(prompt)
+        out.print(prompt)
         `in`.readLine()
             ?.trim()
             ?.takeUnless { it in exitKeywords }
