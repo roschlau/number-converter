@@ -1,15 +1,18 @@
 package com.github.roschlau.numberconverter.cli
 
+import arrow.core.andThen
 import com.github.roschlau.numberconverter.Result
 import com.github.roschlau.numberconverter.convert
 
 
 fun main(args: Array<String>) {
+    repl(handleInput = ::convert andThen ::display)
+}
+
+inline fun repl(prompt: String = "> ", handleInput: (String) -> Unit) {
     while (true) {
-        print("> ")
-        readLine()
-            ?.let(::convert)
-            ?.let(::display)
+        print(prompt)
+        readLine()?.let(handleInput)
     }
 }
 
