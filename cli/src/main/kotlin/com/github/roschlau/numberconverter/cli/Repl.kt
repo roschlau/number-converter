@@ -6,23 +6,23 @@ import java.io.PrintStream
 fun repl(
     prompt: String = "> ",
     exitKeywords: Set<String> = setOf("exit"),
-    readFrom: BufferedReader = System.`in`.bufferedReader(),
-    printTo: PrintStream = System.out,
+    `in`: BufferedReader = System.`in`.bufferedReader(),
+    out: PrintStream = System.out,
     eval: (String) -> String
 ) {
-    readLoop(prompt, exitKeywords, readFrom)
+    readLoop(prompt, exitKeywords, `in`)
         .map(eval)
-        .forEach(printTo::println)
+        .forEach(out::println)
 }
 
 fun readLoop(
     prompt: String,
     exitKeywords: Set<String>,
-    readFrom: BufferedReader
+    `in`: BufferedReader
 ): Sequence<String> =
     generateSequence {
         print(prompt)
-        readFrom.readLine()
+        `in`.readLine()
             ?.trim()
             ?.takeUnless { it in exitKeywords }
     }
