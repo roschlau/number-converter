@@ -8,16 +8,14 @@ fun main(args: Array<String>) {
     while (true) {
         print("> ")
         readLine()
-            .map { it!! }
-            .map(::convert)
-            .flatMap(::display)
-            .run()
+            ?.let(::convert)
+            ?.let(::display)
     }
 }
 
-fun display(result: Result<String>): IO<Unit> = result.fold(
+fun display(result: Result<String>): Unit = result.fold(
     ifLeft = { displayError(it.msg) },
     ifRight = { displayResult(it) }
 )
-fun displayResult(result: String): IO<Unit> = println(result)
-fun displayError(msg: String): IO<Unit> = println("ERROR: $msg")
+fun displayResult(result: String): Unit = println(result)
+fun displayError(msg: String): Unit = println("ERROR: $msg")
