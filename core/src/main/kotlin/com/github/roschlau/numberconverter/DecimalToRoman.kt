@@ -25,8 +25,6 @@ object DecimalToRoman {
     }
 }
 
-operator fun String.times(times: Int) = Array(times) { this }.joinToString("")
-
 val romanValueMapping = mapOf(
     "I" to 1,
     "V" to 5,
