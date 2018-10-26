@@ -21,6 +21,7 @@ class ConversionTest {
         "VII,        7",
         "VIII,       8",
         "IX,         9",
+        "VIV,        9",
         "VIIII,      9",
         "X,          10",
         "XI,         11",
