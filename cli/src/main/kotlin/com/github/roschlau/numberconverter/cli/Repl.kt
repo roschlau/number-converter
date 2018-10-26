@@ -6,37 +6,36 @@ import java.io.PrintStream
 /**
  * Starts a Read-Eval-Print-Loop.
  *
- * It prints a [prompt] to [out], read the next line from [in], call [eval] with that line, print the result to [out]
- * and then starts over again.
+ * It prints a [prompt] to [print], reads the next line from [read], call [eval] with that line, print the result
+ * to [print] and then starts over again.
  *
- * The loop will exit if the line read from [in] equals one of the [exitKeywords].
+ * The loop will exit if [read].[readLine()][BufferedReader.readLine] return one of the [exitKeywords] or null.
  */
 fun repl(
     prompt: String = "> ",
     exitKeywords: Set<String> = setOf("exit"),
-    `in`: BufferedReader = System.`in`.bufferedReader(),
-    out: PrintStream = System.out,
+    read: BufferedReader = System.`in`.bufferedReader(),
+    print: PrintStream = System.out,
     eval: (String) -> String
 ) {
-    readLoop(prompt, `in`, out)
+    readLoop(prompt, read, print)
         .takeWhile { it !in exitKeywords }
         .map(eval)
-        .forEach(out::println)
+        .forEach(print::println)
 }
 
 /**
  * Provides the Read-Loop of a REPL.
  *
- * It generates a sequence that will print the [prompt] to [out], read the next line from [in], trim it and return it
+ * It generates a sequence that will print the [prompt] to [print], read the next line from [read], trim it and return it
  * every time a new value is requested. The sequence will terminate if the read line is null (e.g. when EOF is reached)
  */
 fun readLoop(
     prompt: String,
-    `in`: BufferedReader,
-    out: PrintStream
+    read: BufferedReader,
+    print: PrintStream
 ): Sequence<String> =
     generateSequence {
-        out.print(prompt)
-        `in`.readLine()
-            ?.trim()
+        print.print(prompt)
+        read.readLine()?.trim()
     }

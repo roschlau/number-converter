@@ -45,6 +45,10 @@ subprojects {
         // Test
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
         testRuntime "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+        testImplementation("com.nhaarman:mockito-kotlin-kt1.1:1.6.0") {
+            exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+        }
+        testImplementation 'com.natpryce:hamkrest:1.4.2.2'
     }
 
     compileKotlin {
