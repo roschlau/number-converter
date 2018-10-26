@@ -11,8 +11,8 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.response.respond
 import io.ktor.response.respondText
-import io.ktor.routing.Routing
 import io.ktor.routing.get
+import io.ktor.routing.routing
 
 fun Application.main() {
     install(DefaultHeaders) {
@@ -20,7 +20,7 @@ fun Application.main() {
     }
     install(CallLogging)
 
-    install(Routing) {
+    routing {
         get("/convert/{number}") {
             val number = call.parameters["number"]
                 ?: return@get call.respond(HttpStatusCode.BadRequest)
