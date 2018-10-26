@@ -12,7 +12,7 @@ object DecimalToRoman {
         0 -> appendTo
         else -> {
             // Find the biggest roman digit that fits into the given number and its value
-            val (romanDigit, value) = romanDigitValues.entries
+            val (romanDigit, value) = romanValueMapping.entries
                 .sortedByDescending { it.value }
                 .first { it.value <= number }
             // Calculate how often the roman digit has to be repeated
@@ -25,4 +25,14 @@ object DecimalToRoman {
     }
 }
 
-operator fun Char.times(times: Int) = String(CharArray(times) { this })
+operator fun String.times(times: Int) = Array(times) { this }.joinToString("")
+
+val romanValueMapping = mapOf(
+    "I" to 1,
+    "V" to 5,
+    "X" to 10,
+    "L" to 50,
+    "C" to 100,
+    "D" to 500,
+    "M" to 1000
+)
